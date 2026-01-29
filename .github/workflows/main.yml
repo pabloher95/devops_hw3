@@ -1,0 +1,13 @@
+on: 
+  workflow_dispatch:
+  push: 
+    branches: 
+      - main
+  pull_request:
+    branches:
+      - main
+  
+name: test_app_workflow
+
+jobs:
+  test_workflow
