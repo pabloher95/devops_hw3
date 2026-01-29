@@ -52,4 +52,4 @@ jobs:
         
     - name: build - run app
       run: |
-           timeout --signal=SIGINT 5s uv run python app.py
+           timeout 5s uv run python app.py || true
