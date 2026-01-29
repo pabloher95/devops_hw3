@@ -51,12 +51,8 @@ jobs:
         path: artifacts/
         
     - name: build - run app
-      run: uv run python app.py
-
-    - name: build - ping app
       run: |
-            sleep 2 
-            curl -s http://127.0.0.1:5000/ > artifacts/response.txt
-      
+           uv run python app.py
+           
       
     
