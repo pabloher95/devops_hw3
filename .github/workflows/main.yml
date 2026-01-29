@@ -10,4 +10,8 @@ on:
 name: test_app_workflow
 
 jobs:
-  test_workflow
+  test_workflow:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: env_setup
