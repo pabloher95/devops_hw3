@@ -34,3 +34,5 @@ In this game, a coin is tossed by picking a random number between 0 (heads) and 
 
 The app's test suite can be run locally using the following command:
 `uv run pytest test_app.py`
+
+Likewise, you can find the CI specifications under the `.github/workflows` directory. 
