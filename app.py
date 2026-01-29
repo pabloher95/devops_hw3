@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify, Response
 import random
-import json
 
 dice_art = {  # art from https://realpython.com/python-dice-roll/
     1: (
