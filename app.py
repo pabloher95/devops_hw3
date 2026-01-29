@@ -116,10 +116,11 @@ def diceroll():
 def coinflip():
     result = random.randint(0, 1)
 
-    result_str = 'Head' if result == 0 else "Tail"
+    result_str = "Head" if result == 0 else "Tail"
 
     return Response(
-        f"Coin Flip: {result_str}\n{coin_art[result]}", mimetype="text/plain charset=utf-8"
+        f"Coin Flip: {result_str}\n{coin_art[result]}",
+        mimetype="text/plain charset=utf-8",
     )
 
 
