@@ -15,16 +15,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
     - name: setup - checkout
       uses: actions/checkout@v6
+      
     - name: setup - python
       uses: actions/setup-python@v6
       with:
         python-version: '3.13' 
+        
     - name: setup - uv
       uses: astral-sh/setup-uv@v6
-    - name: setup - dependencies
-      run: sudo apt-get update && sudo apt-get install -y libkrb5-dev gdal-bin libgdal-dev
-      
     - name: setup - project
-      run: uv sync --locked --all-extras --dev
+      run: uv sync
+
+    - name: cq - lint
+      uses: astral-sh/ruff-action@v3
+      with:
+        args: check .
+        
+    - name: cq - ruff format
+      uses: astral-sh/ruff-action@v3
+      with:
+        args: format --check . 
+    
