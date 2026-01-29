@@ -1,0 +1,41 @@
+name: test_app_workflow
+on: 
+  workflow_dispatch:
+  push: 
+    branches: 
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  test_workflow:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - name: setup - checkout
+      uses: actions/checkout@v6
+      
+    - name: setup - python
+      uses: actions/setup-python@v6
+      with:
+        python-version: '3.13' 
+        
+    - name: setup - uv
+      uses: astral-sh/setup-uv@v6
+    - name: setup - project
+      run: uv sync
+
+    - name: cq - lint
+      uses: astral-sh/ruff-action@v3
+      with:
+        args: check .
+        
+    - name: cq - ruff format
+      uses: astral-sh/ruff-action@v3
+      with:
+        args: format --check . 
+    
