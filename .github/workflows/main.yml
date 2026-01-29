@@ -42,7 +42,7 @@ jobs:
     - name: testing - unitttests
       run: |
            mkdir -p artifacts
-           uv run pytest test_app.py --cov=. --cov-fail-under=80 --cov-report=artifacts/report.json
+           uv run pytest test_app.py --cov=. --cov-fail-under=80 --cov-report=json:artifacts/report.json
       
     - name: testing - upload artifacts
       uses: actions/upload-artifact@v4
