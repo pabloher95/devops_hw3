@@ -52,7 +52,8 @@ jobs:
         
     - name: build - run app
       run: |
-           uv run python app.py
+           uv run python app.py & echo $! >app.pid
            
-      
-    
+    - name: shutdown
+      if: always()
+      run: kill -INT "$(cat app.pid)" || true
